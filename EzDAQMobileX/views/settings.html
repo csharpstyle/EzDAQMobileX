@@ -1,3 +1,18 @@
-<div data-role="view" data-title="Settings" data-layout="main" data-model="APP.models.settings">
-  <h1 data-bind="html: title"></h1>
-</div>
+<!DOCTYPE html>
+
+<html>
+    <body>
+        <div id="settings" data-role="view" data-title="设置" data-layout="main" data-show="settingsView_show">
+            <ul data-role="listview" data-style="inset">
+                <li>
+                    <label for="serverRootText">
+                        服务地址:
+                        <input type="text" id="serverRootText" />
+                    </label>
+                </li>
+            </ul>
+            <a data-click="saveButton_click" id="saveButton" type="button" data-role="button" style="display: block; margin: 2em; text-align: center;">保存</a>
+            <a data-click="logoutButton_click" id="logoutButton" type="button" data-role="button" style="display: block; margin: 2em; text-align: center;">注销</a>
+        </div>
+    </body>
+</html> 

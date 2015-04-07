@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+    <body>
+        <div data-role="view" id="monitor" data-init="monitorView_init" data-title="数据地图" data-show="monitorView_show">
+            <!--
+            <header data-role="header">
+            <div data-role="navbar">
+            <a data-role="button" data-rel="drawer" href="#areaDrawer" data-icon="organize" data-align="left"></a>
+            <span data-role="view-title"></span>
+            </div>
+            </header>
+            -->
+            <div id="map"></div>
+            <div id="button-wrapper">
+                <a data-role="button" href="views/maps.html">返回</a>
+            </div>
+            <style scoped>
+                #button-wrapper
+                {
+                    position: absolute;
+                    right: 10px;
+                    top: 10px;
+                }
+            </style>
+        </div>
+        <!--
+        <div data-role="drawer" id="areaDrawer" style="width: 270px" data-views="['monitor']">
+        <ul id="areaListView"></ul>
+        </div>
+        <script type="text/x-kendo-template" id="areaListViewTemplate">
+        <a href="\#monitor?mapUrl=#: MapUrl #&mapId=#: MapId #&mapWidth=#: MapWidth #&mapHeight=#: MapHeight #&maxLevel=#: MaxLevel #">
+        #: Name #
+        </a>
+        </script>
+        -->
+    </body>
+</html>

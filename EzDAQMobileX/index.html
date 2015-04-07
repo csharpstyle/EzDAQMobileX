@@ -1,37 +1,51 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title></title>
-    <meta charset="utf-8" />
-    <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
-    <link href="styles/main.css" rel="stylesheet" />
+    <head>
+        <title></title>
+        <meta charset="utf-8" />
+        <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
+        <link href="styles/main.css" rel="stylesheet" />
+        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css"/>
 
-    <script src="cordova.js"></script>
-    <script src="kendo/js/jquery.min.js"></script>
-    <script src="kendo/js/kendo.mobile.min.js"></script>
+        <script src="cordova.js"></script>
+        <script src="kendo/js/jquery.min.js"></script>
+        <script src="kendo/js/kendo.mobile.min.js"></script>
+        <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
 
-    <script src="scripts/app.js"></script>
+        <script src="scripts/app.js"></script>
+        <script src="scripts/login.js"></script>
+        <script src="scripts/realtime.js"></script>
+        <script src="scripts/alarms.js"></script>
+        <script src="scripts/monitor.js"></script>
+        <script src="scripts/settings.js"></script>
+        <script src="scripts/maps.js"></script>
+    </head>
+    <body>
+        <div data-role="layout" data-id="main">
+            <div data-role="header">
+                <div data-role="navbar">
+                    <span data-role="view-title"></span>
+                </div>
+            </div>
 
-</head>
-<body>
- 
-    <div data-role="layout" data-id="main">
-        <div data-role="header">
-            <div data-role="navbar">
-                <span data-role="view-title"></span>
+            <!-- application views will be rendered here -->
+
+            <div data-role="footer">
+                <div data-role="tabstrip">
+                    <a href="views/alarms.html" data-icon="info">报警信息</a>
+                    <a href="views/realtime.html" data-icon="recents">实时数据</a>
+                    <a href="views/maps.html" data-icon="globe">数据地图</a>
+                    <a href="views/settings.html" data-icon="settings">设置</a>
+                </div>
             </div>
         </div>
 
-        <!-- application views will be rendered here -->
-        
-        <div data-role="footer">
-            <div data-role="tabstrip">
-                <a href="views/home.html" data-icon="home">Home</a>   
-                <a href="views/settings.html" data-icon="settings">Settings</a>
-                <a href="views/contacts.html" data-icon="contacts">Contacts</a>
-            </div>
-        </div>
-    </div>
-
-</body>
+        <style scoped>
+            #realtimeListViewTemplate .km-listview .km-list
+            {
+                border-top-color: #dcbe87;
+                background-color: red;
+            }
+        </style>
+    </body>
 </html>

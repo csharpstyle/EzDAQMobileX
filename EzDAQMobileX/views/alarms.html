@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html>
+    <body>
+        <div data-role="view" id="alarm" data-init="alarmView_init" data-layout="main" data-title="报警信息">
+            <div style="background-color: black">
+                <ul id="alarmListView" class="alarmListView"></ul>
+                <style scoped>
+                    .alarmListView>li
+                    {
+                        border-width: 0px !important;
+                        padding: 4px !important;
+                    }
+                </style>
+            </div>
+        </div>
+
+        <script type="text/x-kendo-template" id="alarmListViewTemplate">
+            <div class="#= 'alarm' + AlarmLogType #" style="font-size: 18px; background-color: rgb(239,239,239); width: 100%; border-radius: 10px;">
+                <style scoped>
+                    .alarm0
+                    {
+                    border: 6px green solid;
+                    }
+                    .alarm1
+                    {
+                    border: 6px red solid;
+                    }
+                    .alarm2
+                    {
+                    border: 6px red solid;
+                    }
+                    .alarm3
+                    {
+                    border: 6px yellow solid;
+                    }
+                    .alarm4
+                    {
+                    border: 6px yellow solid;
+                    }
+                    .alarm5
+                    {
+                    border: 6px pink solid;
+                    }
+                    .alarm6
+                    {
+                    border: 6px red solid;
+                    }
+                    .alarm7
+                    {
+                    border: 6px gray solid;
+                    }
+            
+                    .alarms_bg
+                    {
+                    border-right: 1px lightgrey solid;
+                    background-repeat: no-repeat;
+                    background-size: 15px 15px;
+                    background-position: center center;
+                    }
+
+                    .alarms_bg0{
+                    background-image:url('images/alarmType0.png');
+                    }
+            
+                    .alarms_bg1{
+                    background-image:url('images/alarmType1.png');
+                    }
+            
+                    .alarms_bg2{
+                    background-image:url('images/alarmType2.png');
+                    }
+            
+                    .alarms_bg3{
+                    background-image:url('images/alarmType3.png');
+                    }
+            
+                    .alarms_bg4{
+                    background-image:url('images/alarmType4.png');
+                    }
+            
+                    .alarms_bg5{
+                    background-image:url('images/alarmType5.png');
+                    }
+            
+                    .alarms_bg6{
+                    background-image:url('images/alarmType6.png');
+                    }
+            
+                    .alarms_bg7{
+                    background-image:url('images/alarmType7.png');
+                    }
+            
+                    .measurementType_bg{
+                    background-repeat: no-repeat;
+                    background-size: 15px 15px;
+                    background-position: 1px center;
+                    }
+            
+                    .measurementType_bg0{
+                    background-image:url('images/measurementType0.png');
+                    }
+            
+                    .measurementType_bg1{
+                    background-image:url('images/measurementType1.png');
+                    }
+            
+                    .measurementType_bg2{
+                    background-image:url('images/measurementType2.png');
+                    }
+            
+                    .measurementType_bg3{
+                    background-image:url('images/measurementType3.png');
+                    }
+            
+                    .measurementType_bg4{
+                    background-image:url('images/measurementType4.png');
+                    }
+            
+                    .measurementType_bg5{
+                    background-image:url('images/measurementType5.png');
+                    }
+            
+                    .measurementType_bg6{
+                    background-image:url('images/measurementType6.png');
+                    }
+            
+                    .measurementType_bg7{
+                    background-image:url('images/measurementType7.png');
+                    }
+            
+                    .measurementType_bg8{
+                    background-image:url('images/measurementType8.png');
+                    }
+            
+                    .measurementType_bg9{
+                    background-image:url('images/measurementType9.png');
+                    }
+            
+                    .channelNo{
+                    background-repeat: no-repeat;
+                    background-size: 15px 15px;
+                    background-position: 1px center;
+                    background-image:url('images/channelNo.png');
+                    }
+            
+                    .clock{
+                    background-repeat: no-repeat;
+                    background-size: 15px 15px;
+                    background-position: 1px center;
+                    background-image:url('images/clock.png');
+                    }
+                </style>
+                <table>
+                    <col width="100px"/>
+                    <col/>
+                    <tr>
+                        <td rowspan="2" class="#= 'alarms_bg alarms_bg' + AlarmLogType #">&nbsp;</td>
+                        <td class="#= 'measurementType_bg measurementType_bg' + getMeasurementTypeCss(MeasurementTypeName) #" style="font-weight: bold;">
+                            <div style="margin-left: 16px">${ChannelName}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="channelNo" style="font-weight: bold;">
+                            <div style="margin-left: 16px">${ChannelNo}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2" align="center" valign="middle" style="font-weight: bold; border-right: 1px lightgrey solid;">${AlarmLogTypeName}</td>
+                        <td class="clock" style="font-size:12px;">
+                            <div style="margin-left: 16px">开始时间：#= kendo.toString(kendo.parseDate(StartTime), "yyyy/MM/dd HH:mm:ss") #</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-size:12px;">
+                            <div style="margin-left: 16px">
+                                结束时间：#= kendo.toString(kendo.parseDate(EndTime), "yyyy/MM/dd HH:mm:ss") #
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <table style="width: 100%; border-top: 1px lightgrey solid;">
+                    <col/>
+                    <col/>
+                    <col/>
+                    <col/>
+                    <tr>
+                        <td style="font-weight: bold;">开始值：</td>
+                        <td style="font-weight: bold;">${StartValue}</td>
+                        <td style="font-weight: bold;">结束值：</td>
+                        <td style="font-weight: bold;">${EndValue}</td>
+                    </tr>
+                </table>
+            </div>
+        </script>
+    </body>
+</html>

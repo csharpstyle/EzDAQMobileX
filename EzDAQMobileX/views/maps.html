@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <div data-role="view" id="maps" data-init="maps.init" data-layout="main" data-title="地图列表">
+            <ul id="mapsListView" style="font-size: 18px;"></ul>
+        </div>
+
+        <script type="text/x-kendo-template" id="mapsListViewTemplate">
+            <a href="views/monitor.html?mapUrl=#: MapUrl #&mapId=#: MapId #&mapWidth=#: MapWidth #&mapHeight=#: MapHeight #&maxLevel=#: MaxLevel #">
+                #: Name #
+            </a>
+        </script>
+    </body>
+</html>

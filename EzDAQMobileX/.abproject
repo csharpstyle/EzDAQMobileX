@@ -2,11 +2,11 @@
   "ProjectName": "EzDAQMobileX",
   "ProjectGuid": "79723010-9c1f-4c5c-bd7e-b33cf1649416",
   "projectVersion": 1,
-  "AppIdentifier": "com.telerik.EzDAQMobileX",
-  "DisplayName": "EzDAQMobileX",
+  "AppIdentifier": "com.virry.ezdaq",
+  "DisplayName": "EzDAQMobile",
   "Author": "",
   "Description": "",
-  "BundleVersion": "1.0",
+  "BundleVersion": "1.0.1",
   "AndroidVersionCode": "1",
   "iOSDeviceFamily": [
     "1",
@@ -36,5 +36,25 @@
     "ID_RESOLUTION_WVGA",
     "ID_RESOLUTION_WXGA",
     "ID_RESOLUTION_HD720P"
+  ],
+  "CorePlugins": [
+    "org.apache.cordova.battery-status",
+    "org.apache.cordova.camera",
+    "org.apache.cordova.media-capture",
+    "org.apache.cordova.contacts",
+    "org.apache.cordova.device",
+    "org.apache.cordova.device-motion",
+    "org.apache.cordova.device-orientation",
+    "org.apache.cordova.file",
+    "org.apache.cordova.file-transfer",
+    "org.apache.cordova.geolocation",
+    "org.apache.cordova.globalization",
+    "org.apache.cordova.inappbrowser",
+    "org.apache.cordova.media",
+    "org.apache.cordova.network-information",
+    "org.apache.cordova.dialogs",
+    "org.apache.cordova.splashscreen",
+    "org.apache.cordova.statusbar",
+    "org.apache.cordova.vibration"
   ]
 }

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<html>
+    <body>
+        <div data-role="view" id="realtime" data-init="realtimeView_init" data-show="realtimeView_show" data-layout="main" data-title="实时数据">
+            <ul data-role="buttongroup" data-index="0" data-select="realtime_searchSelect">
+                <li>
+                    全部
+                </li>
+                <li>
+                    区域
+                </li>
+                <li>
+                    子系统
+                </li>
+                <li>
+                    数据类型
+                </li>
+                <li>
+                    报警类型
+                </li>
+            </ul>
+            <div style="background-color: black">
+                <ul id="realtimeListView" class="realtimeListView"></ul>
+                <style scoped>
+                    .realtimeListView>li
+                    {
+                        border-width: 0px !important;
+                        padding: 4px !important;
+                    }
+                </style>
+            </div>
+        </div>
+        <div data-role="modalview" id="filterModalView1" style="width: 90%; height: 90%;">
+            <div data-role="header">
+                <div data-role="navbar">
+                    <span id="filterModalView1_title"></span>
+                    <a data-click="filterModalView1_close" data-role="button" data-align="right">取消</a>
+                </div>
+            </div>
+            <ul id="fliterListView" style="font-size: 18px;"></ul>
+            <script type="text/x-kendo-template" id="fliterListViewTemplate">
+                #: Name #
+            </script>
+        </div>
+
+        <div data-role="modalview" id="filterModalView" style="width: 90%; height: 90%;">
+            <div data-role="header">
+                <div data-role="navbar">
+                    <span id="filterModalView_title"></span>
+                    <a data-click="closeModalViewLogin" data-role="button" data-align="right">取消</a>
+                </div>
+            </div>
+
+        </div>
+
+        <script type="text/x-kendo-template" id="realtimeListViewTemplate">
+            <style scoped>
+                .alarm0
+                {
+                border: 6px green solid;
+                }
+                .alarm1
+                {
+                border: 6px red solid;
+                }
+                .alarm2
+                {
+                border: 6px red solid;
+                }
+                .alarm3
+                {
+                border: 6px yellow solid;
+                }
+                .alarm4
+                {
+                border: 6px yellow solid;
+                }
+                .alarm5
+                {
+                border: 6px pink solid;
+                }
+                .alarm6
+                {
+                border: 6px red solid;
+                }
+                .alarm7
+                {
+                border: 6px gray solid;
+                }
+
+                .alarm_bg
+                {
+                font-weight: bold;
+                border-bottom: 1px lightgrey solid;
+                background-repeat: no-repeat;
+                background-size: 15px 15px;
+                background-position: 1px center;
+                }
+
+                .alarm_bg0{
+                background-image:url('images/alarmType0.png');
+                }
+            
+                .alarm_bg1{
+                background-image:url('images/alarmType1.png');
+                }
+            
+                .alarm_bg2{
+                background-image:url('images/alarmType2.png');
+                }
+            
+                .alarm_bg3{
+                background-image:url('images/alarmType3.png');
+                }
+            
+                .alarm_bg4{
+                background-image:url('images/alarmType4.png');
+                }
+            
+                .alarm_bg5{
+                background-image:url('images/alarmType5.png');
+                }
+            
+                .alarm_bg6{
+                background-image:url('images/alarmType6.png');
+                }
+            
+                .alarm_bg7{
+                background-image:url('images/alarmType7.png');
+                }
+            
+                .measurementType_bg{
+                background-repeat: no-repeat;
+                background-size: 15px 15px;
+                background-position: 1px center;
+                }
+            
+                .measurementType_bg0{
+                background-image:url('images/measurementType0.png');
+                }
+            
+                .measurementType_bg1{
+                background-image:url('images/measurementType1.png');
+                }
+            
+                .measurementType_bg2{
+                background-image:url('images/measurementType2.png');
+                }
+            
+                .measurementType_bg3{
+                background-image:url('images/measurementType3.png');
+                }
+            
+                .measurementType_bg4{
+                background-image:url('images/measurementType4.png');
+                }
+            
+                .measurementType_bg5{
+                background-image:url('images/measurementType5.png');
+                }
+            
+                .measurementType_bg6{
+                background-image:url('images/measurementType6.png');
+                }
+            
+                .measurementType_bg7{
+                background-image:url('images/measurementType7.png');
+                }
+            
+                .measurementType_bg8{
+                background-image:url('images/measurementType8.png');
+                }
+            
+                .measurementType_bg9{
+                background-image:url('images/measurementType9.png');
+                }
+            </style>
+            <table class="#= 'alarm' + AlarmType #" style="font-size: 18px; background-color: rgb(239,239,239); width: 100%; border-radius: 10px;">
+                <col width="100px">
+                <col>
+                <tr>
+                    <td class="#= 'alarm_bg alarm_bg' + AlarmType #">
+                        <div style="margin-left: 16px">${AlarmTypeName}</div>
+                    </td>
+                    <td style="font-weight: bold">${ChannelName}</td>
+                </tr>
+                <tr>
+                    <td class="#= 'measurementType_bg measurementType_bg' + getMeasurementTypeCss(MeasurementTypeName) #">
+                        <div style="margin-left: 16px">${MeasurementTypeName}</div>
+                    </td>
+                    <td>${AreaFullName}</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold">${Description}</td>
+                    <td style="font-size: 14px">#= kendo.toString(kendo.parseDate(DAQTime), "yyyy/MM/dd HH:mm:ss") #</td>
+                </tr>
+            </table>
+        </script>
+    </body>
+</html>
